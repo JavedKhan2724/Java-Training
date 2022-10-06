@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<h:body>
+	<h:form>
+		Employ No :
+		<h:inputText id="empno"
+		required="true"
+		label="Employ No"
+		value="#{employ.empno}" >
+			<f:validateRequired/>
+			<f:validateLongRange maximum="100" minimum="1"/>
+			</h:inputText>
+			<br/><br/>
+				
+		Employ Name :
+		<h:inputText id="name"
+		required="true"
+		label="Employ Name"
+		value="#{employ.name}" >		
+		<f:validateLength minimum="5" maximum="12"/>
+		</h:inputText>
+		<br/><br/>
+		
+		Department :
+		<h:selectOneMenu id="dept" value="#{employ.dept}"
+		required="true"
+		label="Departmemnt">
+		<f:selectItem itemValue="Java" itemlabel="Java" />
+		<f:selectItem itemValue="React" itemlabel="React" />
+		<f:selectItem itemValue="Angular" itemlabel="Angular" />
+		<f:validateRequired/>
+		</h:selectOneMenu>
+		<br/><br/>
+		
+		Designation :
+		<h:selectOneMenu id="design" value="#{employ.design}"
+		required="true"
+		label="Designation">
+		<f:selectItem itemValue="Programmer" itemlabel="Programmer" />
+		<f:selectItem itemValue="Manager" itemlabel="Manager" />
+		<f:selectItem itemValue="Lead" itemlabel="Lead" />
+		<f:validateRequired/>
+		</h:selectOneMenu>
+		<br/><br/>
+		
+		Gender :
+		<h:selectOneMenu id="gender" value="#{employ.gender}"
+		required="true"
+		label="Designation">
+		<f:selectItem itemValue="Male" itemlabel="Male" />
+		<f:selectItem itemValue="Female" itemlabel="Female" />
+		<f:validateRequired/>
+		</h:selectOneMenu>
+		<br/><br/>
+		
+		Basic :
+		<h:inputText id="basic" value="#{employ.basic}" 
+		required="true"
+		label="Basic">
+		<f:validateDoubleRange minimum="1000.0" maximum="50000.0"/>
+		<f:validateRequired/>
+		</h:inputText>
+		
+		
+		<h:message for="name" style="color:red"/> <br/><br/>
+		<h:message for="empno" style="color:red"/> <br/><br/>
+		<h:message for="dept" style="color:red"/> <br/><br/>
+		<h:message for="design" style="color:red"/> <br/><br/>
+		<h:message for="gender" style="color:red"/> <br/><br/>
+		
+		<h:commandButton value="Submit" action="showEmploy" />
+	</h:form>
+</h:body>
+</html>
